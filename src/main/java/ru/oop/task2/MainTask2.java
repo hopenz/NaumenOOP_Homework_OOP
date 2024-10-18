@@ -1,5 +1,7 @@
 package ru.oop.task2;
 
+import ru.oop.task1.Car;
+
 /**
  * <b>Задача 2:</b><br>
  * Добраться человеку до заданного места.<br>
@@ -28,5 +30,11 @@ public class MainTask2 {
      * @see Person
      * @see Position
      */
-    // TODO реализовать метод moveTo(...)
+    public void moveTo(Person person, Position destination) {
+        Bus bus = new Bus("43", person);
+        person.walk(bus.getPosition());
+        bus.drive(destination);
+        person.walk(destination);
+        assert person.getPosition() == destination;
+    }
 }
