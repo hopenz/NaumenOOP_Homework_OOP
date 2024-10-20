@@ -8,5 +8,5 @@ public interface Transport extends Positioned {
     /**
      * Транспорт можеть ездить
      */
-    public void drive(Position position);
+    void drive(Person person, Position position);
 }

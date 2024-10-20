@@ -3,9 +3,9 @@ package ru.oop.task2;
 /**
  * Интерфейс транспорта
  */
-public interface Transport {
+public interface Transport extends Positioned{
     /**
      * Весь транспорт может ехать до места назначения
      */
-    public void drive(Position position);
+    void drive(Person person, Position position);
 }

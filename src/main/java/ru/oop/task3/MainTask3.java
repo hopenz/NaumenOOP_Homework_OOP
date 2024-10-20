@@ -24,14 +24,15 @@ public class MainTask3 {
      * Переехать из текущего места в заданную точку
      * на любом, заранее определённом транспорте
      */
-    public void moveTo(Person person, Position destination) {
-        List<Transport> list = List.of(new Car(person), new Bus("43", person), new Bus("50", person));
+    public void moveTo(Person person, Position destination, List<Transport> list) {
         for (int i = 0; i < list.size() - 1; i++) {
             person.walk(list.get(i).getPosition());
-            list.get(i).drive(list.get(i + 1).getPosition());
+            list.get(i).drive(person, list.get(i + 1).getPosition());
         }
-        person.walk(list.get(list.size() - 1).getPosition());
-        list.get(list.size() - 1).drive(destination);
+        if (!list.isEmpty()) {
+            person.walk(list.get(list.size() - 1).getPosition());
+            list.get(list.size() - 1).drive(person, destination);
+        }
         person.walk(destination);
         assert person.getPosition() == destination;
     }
